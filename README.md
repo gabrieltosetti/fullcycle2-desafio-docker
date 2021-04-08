@@ -12,4 +12,4 @@ Iniciar aplicação
 docker-compose -f node-nginx/docker-compose.yaml up -d
 ```
 
-Acessar `http://localhost:9000`
+Acessar `http://localhost:8080`
