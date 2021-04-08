@@ -10,6 +10,7 @@ services:
       - app-network
     volumes:
       - ./node:/home/node/app
+      - node_modules:/home/node/app/node_modules
     tty: true
     depends_on:
       - db
@@ -22,7 +23,7 @@ services:
     networks:
       - app-network
     ports:
-      - "9000:9000"
+      - "8080:80"
 
   db:
     image: mysql:5.7
@@ -35,10 +36,12 @@ services:
     environment:
       - MYSQL_DATABASE=nodedb
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER=root
     networks:
       - app-network
 
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  node_modules:
